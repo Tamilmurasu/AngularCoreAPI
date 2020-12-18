@@ -50,7 +50,7 @@ namespace DatingApp.API
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
              services.AddCors();
-
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySetings"));
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
